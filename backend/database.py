@@ -62,7 +62,7 @@ def create_document(collection_name: str, data: Union[BaseModel, Dict[str, Any]]
     data_dict['created_at'] = now
     data_dict['updated_at'] = now
 
-    db[collection_name].insert_one(data_dict)
+    result = db[collection_name].insert_one(data_dict)
     # Return our chosen _id (string) for consistency
     return str(data_dict["_id"])
 
